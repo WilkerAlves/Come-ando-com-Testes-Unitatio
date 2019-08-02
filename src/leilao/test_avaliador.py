@@ -14,8 +14,8 @@ class TestAvaliador(TestCase):
         yuri = Usuario('Yuri')
         lance_do_yuri = Lance(yuri, 100.0)
 
-        self.leilao.lances.append(lance_do_yuri)
-        self.leilao.lances.append(self.lance_do_gui)
+        self.leilao.prope(lance_do_yuri)
+        self.leilao.prope(self.lance_do_gui)
 
         avaliador = Avaliador()
         avaliador.avalia(self.leilao)
@@ -30,8 +30,8 @@ class TestAvaliador(TestCase):
         yuri = Usuario('Yuri')
         lance_do_yuri = Lance(yuri, 100.0)
 
-        self.leilao.lances.append(lance_do_yuri)
-        self.leilao.lances.append(self.lance_do_gui)
+        self.leilao.prope(lance_do_yuri)
+        self.leilao.prope(self.lance_do_gui)
 
         avaliador = Avaliador()
         avaliador.avalia(self.leilao)
@@ -44,7 +44,7 @@ class TestAvaliador(TestCase):
 
     def test_deve_retornar_o_mesmo_valor_para_maior_menor_lance_quando_o_leilao_tiver_um_lance(self):
 
-        self.leilao.lances.append(self.lance_do_gui)
+        self.leilao.prope(self.lance_do_gui)
         avaliador = Avaliador()
         avaliador.avalia(self.leilao)
 
@@ -59,9 +59,9 @@ class TestAvaliador(TestCase):
         lance_do_vini = Lance(vini, 200.0)
         lance_do_yuri = Lance(yuri, 100.0)
 
-        self.leilao.lances.append(self.lance_do_gui)
-        self.leilao.lances.append(lance_do_yuri)
-        self.leilao.lances.append(lance_do_vini)
+        self.leilao.prope(self.lance_do_gui)
+        self.leilao.prope(lance_do_yuri)
+        self.leilao.prope(lance_do_vini)
 
         avaliador = Avaliador()
         avaliador.avalia(self.leilao)

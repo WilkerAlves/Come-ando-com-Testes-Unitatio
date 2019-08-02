@@ -24,9 +24,13 @@ class Leilao:
         self.descricao = descricao
         self.__lances = []
 
+    def prope(self, lance: Lance):
+        self.__lances.append(lance)
+
     @property
+    # devolvendo um copia da lista
     def lances(self):
-        return self.__lances
+        return self.__lances[:]
 
 
 class Avaliador:
